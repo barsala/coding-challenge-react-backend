@@ -1,23 +1,28 @@
-# Next.js + Tailwind CSS Example
+# Barsala coding challenge
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) (v2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+For this challenge, we are looking to make a basic version of our [booking engine](book.barsala.com).
 
-It uses the new [`@tailwindcss/jit`](https://github.com/tailwindlabs/tailwindcss-jit) engine for Tailwind CSS.
+First, familiarize yourself with the [data we have access to](https://sample-data.vercel.app/api/listings). There are a variety of fields here:
 
-## Deploy your own
+- Basic info: `name`, `id`
+- Presentational info: `description`, `imageUrl`
+- Location info: `city`, `geolocation`
+- Pricing & availability data for the next 30 days: `pricing.available`, `pricing.price`, `pricing.date`
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+There are two pages that need to be built:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Page 1. Listings page
 
-## How to use
+First, build a basic form where you can select a date range (from today -> 30 days from now). It should present all listings and some basic information (name, photo, city, and availability should be sufficient).
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+When you select a date range, it should fire an API request to an endpoint that computes pricing and availability for that range. The pricing is simply the sum of days from start to end, inclusive of the start but exclusive of the end date.
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Page 2. SKU page
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+This page should be for an _individual_ listing type for a given date range. It should show _all data_ for a given listing (except maybe the pricing by day). Ideally it should still show availability by date range as well.
+
+## General rules and tips
+
+- Don't worry too much about making it look pretty. Just make sure it works well.
+- Ideally it should be built using Next.js API endpoints and server-side rendering.
+- You might see the file `api/listings.ts`, please ignore this file and instead treat the data as if you were fetching it from [an API](https://sample-data.vercel.app/api/listings).
