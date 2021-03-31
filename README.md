@@ -24,5 +24,10 @@ This page should be for an _individual_ listing type for a given date range. It 
 ## General rules and tips
 
 - Don't worry too much about making it look pretty. Just make sure it works well.
+- Focus on clean code & long-term maintainability.
 - Ideally it should be built using Next.js API endpoints and server-side rendering.
 - You might see the file `api/listings.ts`, please ignore this file and instead treat the data as if you were fetching it from [an API](https://sample-data.vercel.app/api/listings).
+
+## Submission
+
+Send us a zip file of the code, and optionally deploy to Vercel and send us a live link (not required).
